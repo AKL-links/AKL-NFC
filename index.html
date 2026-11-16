@@ -1,43 +1,144 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AKL Personalizados</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:linear-gradient(145deg,#101827,#26344a);color:white;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;padding:24px}
-main{width:100%;max-width:420px;text-align:center}
-.logo{width:85px;height:85px;border-radius:24px;background:#38bdf8;color:#0f172a;display:grid;place-items:center;font-size:29px;font-weight:900;margin:0 auto 20px}
-h1{font-size:27px;margin:0 0 10px}
-p{color:#cbd5e1;margin:0 0 32px;line-height:1.5}
-a,button{display:block;width:100%;border:0;border-radius:14px;padding:19px;margin:13px 0;background:white;color:#172033;font-size:17px;font-weight:bold;text-decoration:none;cursor:pointer}
-a:hover,button:hover{background:#e0f2fe}
-.disabled{opacity:.45;cursor:not-allowed}
-small{display:block;color:#94a3b8;margin-top:28px}
-#msg{min-height:22px;color:#7dd3fc}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>AKL Personalizados</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #080808;
+      font-family: Arial, sans-serif;
+      color: #eac678;
+    }
+
+    .pagina {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .arte {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .botao {
+      position: absolute;
+      left: 10.5%;
+      width: 79%;
+      border-radius: 22px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .botao:active {
+      background: rgba(255, 215, 120, 0.12);
+    }
+
+    .instagram {
+      top: 32.7%;
+      height: 10.8%;
+    }
+
+    .whatsapp {
+      top: 45.4%;
+      height: 10.8%;
+    }
+
+    .pix {
+      top: 58%;
+      height: 10.8%;
+    }
+
+    .aviso {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #d8ad57;
+      color: #111;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: bold;
+      display: none;
+      z-index: 10;
+      text-align: center;
+      width: max-content;
+      max-width: 90%;
+    }
+  </style>
 </head>
+
 <body>
-<main>
-<div class="logo">AKL</div>
-<h1>AKL Personalizados</h1>
-<p>Tecnologia, criatividade e personalização em cada detalhe.</p>
-<a href="https://www.instagram.com/aklpersonalizados_/" target="_blank" rel="noopener">📸 Instagram</a>
-<a href="https://wa.me/5551997166602" target="_blank" rel="noopener">💬 WhatsApp</a>
-<button onclick="copiarPix()">💚 Copiar chave Pix</button>
-<button class="disabled" disabled>⭐ Avaliar no Google — Em breve</button>
-<div id="msg" aria-live="polite"></div>
-<small>AKL Tecnologia Eletrônica © 2026</small>
-</main>
-<script>
-function copiarPix(){
-const chave='04079087063';
-if(navigator.clipboard && window.isSecureContext){
-navigator.clipboard.writeText(chave).then(()=>mostrar('Chave Pix copiada!')).catch(()=>mostrar('Chave Pix: '+chave));
-}else{mostrar('Chave Pix: '+chave)}
-}
-function mostrar(t){document.getElementById('msg').textContent=t}
-</script>
+
+  <main class="pagina">
+
+    <img
+      class="arte"
+      src="akl-premium.png"
+      alt="AKL Personalizados - Instagram, WhatsApp e Pix"
+    >
+
+    <a
+      class="botao instagram"
+      href="https://www.instagram.com/aklpersonalizados_/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir Instagram da AKL">
+    </a>
+
+    <a
+      class="botao whatsapp"
+      href="https://wa.me/5551997166602"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Conversar com a AKL no WhatsApp">
+    </a>
+
+    <a
+      class="botao pix"
+      href="#"
+      onclick="copiarPix(event)"
+      aria-label="Copiar chave Pix">
+    </a>
+
+  </main>
+
+  <div id="aviso" class="aviso" role="status">
+    Chave Pix copiada!
+  </div>
+
+  <script>
+    async function copiarPix(event) {
+      event.preventDefault();
+
+      const chave = "04079087063";
+      const aviso = document.getElementById("aviso");
+
+      try {
+        await navigator.clipboard.writeText(chave);
+        aviso.textContent = "Chave Pix copiada!";
+      } catch (erro) {
+        aviso.textContent = "Chave Pix: " + chave;
+      }
+
+      aviso.style.display = "block";
+
+      setTimeout(function () {
+        aviso.style.display = "none";
+      }, 3000);
+    }
+  </script>
+
 </body>
 </html>
