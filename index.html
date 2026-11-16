@@ -2,204 +2,223 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080808">
-  <title>AKL Personalizados</title>
-  <style>
-    * { box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>AKL Personalizados</title>
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #080808;
-      color: #f5f1e8;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      padding: 32px 18px;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    .pagina {
-      width: 100%;
-      max-width: 430px;
-      text-align: center;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #080808;
+  color: #f5f1e8;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 45px 20px;
+}
 
-    .logo {
-      width: 100%;
-      max-width: 320px;
-      display: block;
-      margin: 12px auto 8px;
-      border-radius: 16px;
-    }
+.pagina {
+  width: 100%;
+  max-width: 430px;
+  text-align: center;
+}
 
-    h1 {
-      font-size: 16px;
-      letter-spacing: 5px;
-      font-weight: 500;
-      margin: 20px 0 12px;
-      color: #f4e7c8;
-    }
+/* LOGO FEITO DIRETAMENTE NO CÓDIGO */
+.logo {
+  padding: 28px 0 20px;
+}
 
-    .linha {
-      height: 1px;
-      width: 65%;
-      margin: 18px auto 24px;
-      background: linear-gradient(
-        90deg, transparent, #d5a84b, transparent
-      );
-    }
+.logo-akl {
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: clamp(85px, 24vw, 125px);
+  font-weight: normal;
+  letter-spacing: -7px;
+  line-height: 1;
+  background: linear-gradient(
+    180deg,
+    #fff0bb 0%,
+    #d7ad55 24%,
+    #89601d 48%,
+    #f5d889 68%,
+    #b88632 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 8px #bd8b3028);
+}
 
-    .descricao {
-      color: #b9ad97;
-      font-size: 14px;
-      line-height: 1.7;
-      margin-bottom: 32px;
-    }
+.logo-linha {
+  width: 180px;
+  height: 1px;
+  margin: 8px auto;
+  background: linear-gradient(
+    90deg, transparent, #b98d42, transparent
+  );
+}
 
-    .botao {
-      display: flex;
-      align-items: center;
-      gap: 17px;
-      text-decoration: none;
-      color: white;
-      padding: 19px;
-      margin-bottom: 16px;
-      border: 1px solid #9e7936;
-      border-radius: 18px;
-      background: linear-gradient(
-        135deg, #24201a, #111111 65%
-      );
-      box-shadow: 0 3px 15px #c7953020;
-      transition: 0.25s;
-      text-align: left;
-    }
+.logo-sub {
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #c4a061;
+}
 
-    .botao:hover {
-      transform: translateY(-3px);
-      border-color: #e7bc62;
-      box-shadow: 0 5px 22px #c7953040;
-    }
+.descricao {
+  margin: 28px auto 36px;
+  max-width: 310px;
+  color: #bcb1a0;
+  font-size: 14px;
+  line-height: 1.7;
+}
 
-    .icone {
-      font-size: 29px;
-      width: 42px;
-      text-align: center;
-      flex-shrink: 0;
-    }
+.botao {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 88px;
+  padding: 17px 20px;
+  margin-bottom: 16px;
+  border: 1px solid #987438;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg, #201b14, #111111 65%
+  );
+  color: white;
+  text-decoration: none;
+  text-align: left;
+  box-shadow: 0 4px 18px #b8892418;
+  cursor: pointer;
+  font: inherit;
+  transition: .2s;
+}
 
-    .conteudo { flex: 1; min-width: 0; }
+.botao:hover {
+  border-color: #e2b65d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 22px #b8892435;
+}
 
-    .nome {
-      font-size: 19px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+.icone {
+  width: 44px;
+  text-align: center;
+  font-size: 29px;
+  flex-shrink: 0;
+}
 
-    .detalhe {
-      font-size: 13px;
-      color: #d8b76b;
-      overflow-wrap: anywhere;
-    }
+.info { flex: 1; min-width: 0; }
 
-    .seta {
-      color: #d9b45d;
-      font-size: 24px;
-    }
+.nome {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
 
-    .pix { cursor: pointer; width: 100%; font: inherit; }
+.detalhe {
+  color: #d8b36b;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
 
-    .servicos {
-      margin-top: 35px;
-      padding-top: 24px;
-      border-top: 1px solid #493a22;
-      display: flex;
-      justify-content: space-around;
-      gap: 10px;
-      color: #d3ae62;
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
+.seta {
+  color: #d8b36b;
+  font-size: 25px;
+}
 
-    footer {
-      margin-top: 42px;
-      font-size: 11px;
-      color: #807667;
-      letter-spacing: 1px;
-    }
-  </style>
+.servicos {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+  margin-top: 38px;
+  padding-top: 24px;
+  border-top: 1px solid #47351d;
+  color: #caa45e;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+footer {
+  margin-top: 45px;
+  color: #817463;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+</style>
 </head>
+
 <body>
-  <main class="pagina">
+<main class="pagina">
 
-   
-    <h1>AKL PERSONALIZADOS</h1>
-    <div class="linha"></div>
+  <header class="logo">
+    <div class="logo-akl">AKL</div>
+    <div class="logo-linha"></div>
+    <div class="logo-sub">PERSONALIZADOS</div>
+  </header>
 
-    <p class="descricao">
-      Tecnologia, criatividade e personalização
-      em cada detalhe.
-    </p>
+  <p class="descricao">
+    Transformamos ideias em detalhes únicos.
+    Tecnologia, criatividade e personalização.
+  </p>
 
-    <a class="botao"
-       href="https://www.instagram.com/aklpersonalizados_/"
-       target="_blank" rel="noopener noreferrer">
-      <span class="icone">📸</span>
-      <div class="conteudo">
-        <div class="nome">Instagram</div>
-        <div class="detalhe">@aklpersonalizados_</div>
+  <a class="botao"
+     href="https://www.instagram.com/aklpersonalizados_/"
+     target="_blank" rel="noopener noreferrer">
+    <span class="icone">📸</span>
+    <div class="info">
+      <div class="nome">Instagram</div>
+      <div class="detalhe">@aklpersonalizados_</div>
+    </div>
+    <span class="seta">›</span>
+  </a>
+
+  <a class="botao"
+     href="https://wa.me/5551997166602"
+     target="_blank" rel="noopener noreferrer">
+    <span class="icone">💬</span>
+    <div class="info">
+      <div class="nome">WhatsApp</div>
+      <div class="detalhe">Fale conosco</div>
+    </div>
+    <span class="seta">›</span>
+  </a>
+
+  <button class="botao" onclick="copiarPix()">
+    <span class="icone">◆</span>
+    <div class="info">
+      <div class="nome">Chave Pix</div>
+      <div class="detalhe" id="textoPix">
+        Toque para copiar a chave
       </div>
-      <span class="seta">›</span>
-    </a>
+    </div>
+    <span class="seta">⧉</span>
+  </button>
 
-    <a class="botao"
-       href="https://wa.me/5551997166602"
-       target="_blank" rel="noopener noreferrer">
-      <span class="icone">💬</span>
-      <div class="conteudo">
-        <div class="nome">WhatsApp</div>
-        <div class="detalhe">Fale conosco</div>
-      </div>
-      <span class="seta">›</span>
-    </a>
+  <section class="servicos">
+    <span>✦ IMPRESSÃO 3D</span>
+    <span>✦ CORTE A LASER</span>
+  </section>
 
-    <button class="botao pix"
-            onclick="copiarPix()">
-      <span class="icone">◆</span>
-      <div class="conteudo">
-        <div class="nome">Chave Pix</div>
-        <div class="detalhe" id="textoPix">
-          Toque para copiar a chave
-        </div>
-      </div>
-      <span class="seta">⧉</span>
-    </button>
+  <footer>© AKL PERSONALIZADOS</footer>
 
-    <section class="servicos">
-      <span>✦ IMPRESSÃO 3D</span>
-      <span>✦ CORTE A LASER</span>
-    </section>
+</main>
 
-    <footer>
-      © AKL PERSONALIZADOS
-    </footer>
+<script>
+const chavePix = "04079087063";
 
-  </main>
-
-  <script>
-    const chavePix = "04079087063";
-
-    async function copiarPix() {
-      try {
-        await navigator.clipboard.writeText(chavePix);
-        document.getElementById("textoPix").textContent =
-          "Chave copiada com sucesso!";
-      } catch (erro) {
-        document.getElementById("textoPix").textContent =
-          "Chave: " + chavePix;
-      }
-    }
-  </script>
+async function copiarPix() {
+  const texto = document.getElementById("textoPix");
+  try {
+    await navigator.clipboard.writeText(chavePix);
+    texto.textContent = "Chave copiada com sucesso!";
+  } catch (erro) {
+    texto.textContent = "Chave: " + chavePix;
+  }
+}
+</script>
 </body>
 </html>
